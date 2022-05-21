@@ -1,0 +1,64 @@
+answer -> boolean
+answer -> query_or_count_answer
+
+query_or_count_answer -> query_or_count & 'what is' query_or_count '?'
+query_or_count_answer -> 'choose' '(' query_or_count ',' attr_value_or_number ',' attr_value_or_number ')' & 'is' query_or_count attr_value_or_number 'or' attr_value_or_number '?'
+query_or_count -> number_objects | ref_attr
+
+number_objects -> count '(' some_ref ')'
+
+count -> 'count' & 'the number of'
+
+boolean -> boolean_single | boolean_pair
+boolean_pair -> boolean_or
+boolean_pair -> boolean_and
+
+boolean_or -> logic_or '(' boolean_single ',' boolean_single ')' & 'either' boolean_single logic_or boolean_single
+boolean_and -> logic_and '(' boolean_single ',' boolean_single ')' & 'both' boolean_single logic_and boolean_single
+
+logic_or -> 'or'
+logic_and -> 'and'
+
+boolean_single -> exists '(' some_ref ')'
+boolean_single -> compare_count
+boolean_single -> compare_attribute
+boolean_single -> quantifier '(' some_ref ',' quantifier_condition ')' & quantifier 'of' some_ref 'are' quantifier_condition
+
+compare_func -> eq | gt | lt
+eq -> 'eq' & 'is equal to'
+gt -> 'gt' & 'is greater than'
+lt -> 'lt' & 'is less than'
+
+exists -> 'exists' & 'there is'
+quantifier -> 'all' | 'most' | 'some' | 'none'
+
+quantifier_condition -> some_ref
+
+compare_count -> compare_func '(' number_objects ',' number_or_number_objects ')' & number_objects compare_func number_or_number_objects
+number_or_number_objects -> number | number_objects
+
+compare_attribute -> eq '(' ref_attr ',' ref_attr_or_attribute ')' & ref_attr eq ref_attr_or_attribute
+ref_attr_or_attribute -> attr_value | ref_attr
+
+some_ref -> ref_some_np | with_relation_ref
+with_relation_ref -> 'with_relation' '(' ref_some_np ',' relation_name ',' some_ref ')' & ref_some_np 'that is' relation_name some_ref
+
+ref_attr -> 'query_attr' '[' attr_name ']' '(' some_ref ')' & 'the' attr_name 'of' some_ref
+
+ref_some_np -> ref
+ref -> find_object | filter_object | everything
+
+everything -> 'scene' '(' ')' & ' '
+find_object -> 'find' '(' object_name ')' & object_name
+filter_object -> 'filter' '(' attr_value ',' ref ')' & attr_value ref
+
+attr_value_or_number -> number | attr_value
+
+number -> '2' | '3' | '4'
+object_name -> 'dog' | 'cat' | 'mouse' | 'animal'
+relation_name -> 'chasing' | 'playing with' | 'looking at'
+
+attr_name -> 'color' | 'shape'
+attr_value -> color_values | shape_values
+color_values -> 'black' | 'white' | 'brown' | 'gray'
+shape_values -> 'round' | 'square' | 'triangle'
