@@ -8,16 +8,16 @@ COVR is a synthetic semantic parsing dataset used to evaluate sequence to sequen
 
 | # | Acc. (FT)<br>Bart/T5 | Acc. (ICL)<br>GPT-3 | Example |  |
 |-----|-----|-----|-----|-----|
-| 8 | 0.34 | 0.68 | 	and (🟠eq (🔵query_attr [color] (with_relation (find (cat), chasing, w... | [Details](covr/splits_details/8.md) |
-| 25 | 0.59 | 0.53 | 🟠none (🔵filter (square, filter (square, find (cat))), with_relation (... | [Details](covr/splits_details/25.md) |
-| 34 | 0.35 | 0.47 | or (eq (count (filter (...)), 4), 🟠exists (🔵with_relation (find (mous... | [Details](covr/splits_details/34.md) |
-| 43 | 0.2 | 0.44 | 🟠and (eq (query_attr [color] (find (cat)), brown), 🔵some (find (cat),... | [Details](covr/splits_details/43.md) |
-| 48 | 0 | 0.92 | 🟤query_attr [shape] (with_relation (filter (square, find (cat)), loo... | [Details](covr/splits_details/48.md) |
-| 51 | 0.64 | 0.56 | or (eq (query_attr [color] (with_relation (find (mouse), playing wi... | [Details](covr/splits_details/51.md) |
-| 99 | 0 | 0.95 | 🟤count (with_relation (filter (gray, find (animal)), chasing, with_r... | [Details](covr/splits_details/99.md) |
-| 100 | 0.02 | 0.76 | 🟠and (eq (query_attr [shape] (find (cat)), white), 🔵exists (filter (t... | [Details](covr/splits_details/100.md) |
-| 110 | 0.18 | 0.52 | or (eq (count (find (animal)), count (🟠with_relation (🔵filter (round,... | [Details](covr/splits_details/110.md) |
-| 115 | 0.28 | 0.19 | or (🟠all (🔵with_relation (find (cat), chasing, with_relation (filter ... | [Details](covr/splits_details/115.md) |
+| 8 | 0.34 | [0.68](covr/gpt3_experiments/8.md) | and (🟠eq (🔵query_attr [color] (with_relation (find (cat), chasing, wi... | [Details](covr/splits_details/8.md) |
+| 25 | 0.59 | [0.53](covr/gpt3_experiments/25.md) | 🟠none (🔵filter (square, 🔵filter (square, find (cat))), with_relation (... | [Details](covr/splits_details/25.md) |
+| 34 | 0.35 | [0.47](covr/gpt3_experiments/34.md) | or (eq (count (filter (...)), 4), 🟠exists (🔵with_relation (find (mous... | [Details](covr/splits_details/34.md) |
+| 43 | 0.2 | [0.44](covr/gpt3_experiments/43.md) | 🟠and (eq (query_attr [color] (find (cat)), brown), 🔵some (find (cat),... | [Details](covr/splits_details/43.md) |
+| 48 | 0 | [0.92](covr/gpt3_experiments/48.md) | 🟤query_attr [shape] (with_relation (filter (square, find (cat)), loo... | [Details](covr/splits_details/48.md) |
+| 51 | 0.64 | [0.56](covr/gpt3_experiments/51.md) | or (eq (query_attr [color] (with_relation (find (mouse), playing wi... | [Details](covr/splits_details/51.md) |
+| 99 | 0 | [0.95](covr/gpt3_experiments/99.md) | 🟤count (with_relation (filter (gray, find (animal)), chasing, with_r... | [Details](covr/splits_details/99.md) |
+| 100 | 0.02 | [0.76](covr/gpt3_experiments/100.md) | 🟠and (eq (query_attr [shape] (find (cat)), white), 🔵exists (filter (t... | [Details](covr/splits_details/100.md) |
+| 110 | 0.18 | [0.52](covr/gpt3_experiments/110.md) | or (eq (count (find (animal)), count (🟠with_relation (🔵filter (round,... | [Details](covr/splits_details/110.md) |
+| 115 | 0.28 | [0.19](covr/gpt3_experiments/115.md) | or (🟠all (🔵with_relation (find (cat), chasing, 🔵with_relation (filter ... | [Details](covr/splits_details/115.md) |
 
 
 Splits are created using the Synchronous context-free grammar (SCFG) rules that have [generated this dataset](covr/grammar.txt), by holding
@@ -32,7 +32,7 @@ out sets of rules that are not seen together during training.
 
 <sup>1</sup>Average exact match accuracy for BART-Base, BART-Large, T5-Base and T5-Large, fine-tuned (FT) separately on each split (see implementation details in the paper).
 
-<sup>2</sup>Exact match accuracy of GPT-3, engine `text-davinci-002`, using OpenAI API. For each split we evaluated on a subset of 100 test examples. We use in-context learning (ICL): for each test instance, we sample 10 examples from the training set and add their source and target to the prompt. 
+<sup>2</sup>Exact match accuracy of GPT-3, engine `text-davinci-002`, using OpenAI API. For each split we evaluated on a subset of 100 test examples. We use in-context learning (ICL): for each test instance, we sample 10 examples from the training set and add their source and target to the prompt. Click on the GPT-3 accuracy to see samples of prompts and outputs. 
 
 # Datasets and splits used in paper 
 Download all datasets we used in this paper (COVR, Overnight, Schema2QA, ATIS) together with their compositional splits: [uls_datasets.zip](https://www.cs.tau.ac.il/~benbogin/uls_datasets.zip)
