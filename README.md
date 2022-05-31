@@ -18,6 +18,7 @@ COVR is a synthetic semantic parsing dataset used to evaluate sequence to sequen
 | 100 | 0.02 | [0.76](covr/gpt3_experiments/100.md) | 🟠and (eq (query_attr [shape] (find (cat)), white), 🔵exists (filter (t... | [Details](covr/splits_details/100.md) |
 | 110 | 0.18 | [0.52](covr/gpt3_experiments/110.md) | or (eq (count (find (animal)), count (🟠with_relation (🔵filter (round,... | [Details](covr/splits_details/110.md) |
 | 115 | 0.28 | [0.19](covr/gpt3_experiments/115.md) | or (🟠all (🔵with_relation (find (cat), chasing, with_relation (filter ... | [Details](covr/splits_details/115.md) |
+| [More](covr/all_splits.md)
 
 🟠 and 🔵 represent an unseen pair of symbols in a given example. 🟤 represents a symbol that was unseen as a first token in the output sequence.
 
@@ -28,7 +29,7 @@ out sets of rules that are not seen together during training.
 * You can see the set of unseen grammar rules for each split, along with training and test examples, by clicking on _Details_ for any desired split.
 * See [the list of all grammar splits](covr/all_splits.md), which includes splits that were not selected for COVR-10. This list only includes grammar splits and not _n_-LS splits.
 
-
+-----------------
 <sup>1</sup>Average exact match accuracy for BART-Base, BART-Large, T5-Base and T5-Large, fine-tuned (FT) separately on each split (see implementation details in the paper).
 
 <sup>2</sup>Exact match accuracy of GPT-3, engine `text-davinci-002`, using OpenAI API. For each split we evaluated on a subset of 100 test examples. We use in-context learning (ICL): for each test instance, we sample 10 examples from the training set and add their source and target to the prompt. Click on the GPT-3 accuracy to see samples of prompts and outputs. 

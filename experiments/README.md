@@ -9,7 +9,7 @@ pip install -r requirements.txt
 2. Download the [datasets and splits](../) you wish to train on to any directory.
 3. Run the following command to train:
     ```
-    python --model-name bart --dataset covr --split-name grammar/8 --datasets-path ../datasets
+    python train.py --model-name bart --dataset covr --split-name grammar/8 --datasets-path ../datasets
     ```
 
     * The value of `--model-name` can be `bart/bart-large/t5/t5-large`
@@ -21,5 +21,5 @@ pip install -r requirements.txt
    
    For example, to run T5-large on Overnight, blocks domain:
     ```
-    python --model-name t5-large --dataset overnight --domain blocks --split-name template/split_0 --datasets-path ../datasets
+    python train.py --model-name t5-large --dataset overnight --domain blocks --split-name template/split_0 --datasets-path ../datasets
     ```
