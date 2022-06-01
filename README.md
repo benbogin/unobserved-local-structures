@@ -33,14 +33,11 @@ out sets of rules that are not seen together during training.
 -----------------
 <sup>1</sup>Average exact match accuracy for BART-Base, BART-Large, T5-Base and T5-Large, fine-tuned (FT) separately on each split (see implementation details in the paper).
 
-<sup>2</sup>Exact match accuracy of GPT-3, engine `text-davinci-002`, using OpenAI API. For each split we evaluated on a subset of 100 test examples. We use in-context learning (ICL): for each test instance, we sample 10 examples from the training set and add their source and target to the prompt. Click on the GPT-3 accuracy to see samples of prompts and outputs. 
+<sup>2</sup>Exact match accuracy of GPT-3, engine `text-davinci-002`, using OpenAI API. For each split we evaluated on a subset of 100 test examples. We use in-context learning (ICL): for each test instance, we randomly sample 10 examples from the training set and add their source and target to the prompt. Click on the GPT-3 accuracy to see samples of prompts and outputs. 
 
 <sup>3</sup>Unobserved local structures of size 2 (2-LS), considering only parent-child relations. 
 
-# Datasets and splits used in paper 
-Download all datasets we used in this paper (COVR, Overnight, Schema2QA, ATIS) together with their compositional splits: [uls_datasets.zip](https://www.cs.tau.ac.il/~benbogin/uls_datasets.zip)
-
-The datasets file has the following format:
+# Download datasets and splits used in paper 
 
 | Dataset | Split Method | # Splits | Download Dataset and splits | Comments
 |---|---|---|---|---|
