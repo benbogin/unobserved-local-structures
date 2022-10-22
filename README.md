@@ -47,8 +47,6 @@ out sets of rules that are not seen together during training.
 | Schema2QA | Template | 5 | [s2q.zip](https://www.cs.tau.ac.il/~benbogin/s2q.zip) | Both utterances and targets are normalized for better evaluation, and are anonymized to resolve column ambiguity
 | Atis | Template | 5 | [atis.zip](https://www.cs.tau.ac.il/~benbogin/atis.zip) | Normalized variables for better evaluation
 
-**Note:** Code to run pre-processing will be uploaded soon.
-
 ### Experiments
 
 [Code to run experiments](experiments).
