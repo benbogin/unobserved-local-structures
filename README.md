@@ -52,3 +52,5 @@ out sets of rules that are not seen together during training.
 ### Experiments
 
 [Code to run experiments](experiments).
+
+[Code to compute easiness](easiness).
